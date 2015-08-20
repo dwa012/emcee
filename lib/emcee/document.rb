@@ -28,7 +28,7 @@ module Emcee
     end
 
     def style_references
-      wrap_nodes(@doc.css("link[rel='stylesheet']"))
+      wrap_nodes(@doc.css("link[rel='stylesheet']").reject{|element| element["href"].starts_with?('http://') || element["href"].starts_with?('https://') })
     end
 
     private
